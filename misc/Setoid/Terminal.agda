@@ -7,5 +7,5 @@ import Type as T
 s : S.t lzero lzero
 s = record
   { obj = T.𝟙.t
-  ; hom = T.! T.𝟙.t
+  ; hom = T.Π.! T.𝟙.t
   }
