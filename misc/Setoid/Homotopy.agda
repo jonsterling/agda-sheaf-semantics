@@ -34,7 +34,6 @@ cmp {B = B} (β T.∐., α) = record
 inv
   : ∀ {ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ} {A : S.t ℓ₀ᵒ ℓ₀ʰ} {B : S.t ℓ₁ᵒ ℓ₁ʰ}
   → {F G : A Π.⇒₀ B}
-  → F ⇒₁ G
-  → G ⇒₁ F
+  → (F ⇒₁ G) T.Π.⇒₀ (G ⇒₁ F)
 inv {B = B} α = record
   { com = S.inv B (com α) }
