@@ -6,12 +6,14 @@ import Type.Coproduct as ∐
 import Type.Path as Path
   renaming (t to _≡_)
 import Type.Product as Π
+import Type.Terminal as 𝟙
 
 record _⇒₁_ ..{ℓ₀ᵒ ℓ₁ᵒ}
   {A : T.t ℓ₀ᵒ}
   {B : T.t ℓ₁ᵒ}
   (F G : A Π.⇒₀ B)
     : Set (ℓ₀ᵒ ⊔ ℓ₁ᵒ) where
+  constructor nat
   field
     com : ∀ {x} → F x Path.≡ G x
 open _⇒₁_ public
@@ -19,9 +21,8 @@ open _⇒₁_ public
 id
   : ∀ {ℓ₀ᵒ ℓ₁ᵒ} {A : T.t ℓ₀ᵒ} {B : T.t ℓ₁ᵒ}
   → (F : A Π.⇒₀ B)
-  → F ⇒₁ F
-id F = record
-  { com = Path.idn }
+  → 𝟙.t Π.⇒₀ (F ⇒₁ F)
+id F = λ x → nat (Path.idn x)
 
 _∘v_
   : ∀ {ℓ₀ᵒ ℓ₁ᵒ} {A : T.t ℓ₀ᵒ} {B : T.t ℓ₁ᵒ}

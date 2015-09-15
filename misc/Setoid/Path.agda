@@ -7,7 +7,7 @@ s : ∀ ..{ℓᵒ} (A : T.t ℓᵒ) → S.t ℓᵒ ℓᵒ
 s A = record
   { obj = A
   ; hom = λ {(a T.∐., b) → T.Path.t a b}
-  ; idn = T.Π.! T.Path.idn
+  ; idn = T.Path.idn
   ; cmp = T.Path.cmp
   ; inv = T.Path.inv
   }
