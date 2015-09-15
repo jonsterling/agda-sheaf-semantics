@@ -2,21 +2,11 @@ module Setoid.Product where
 
 open import Agda.Primitive
 import Setoid.Base as S
+open import Setoid.Product.Boot public
+import Setoid.Extensionality as Ext
 import Type as T
 
-infixr 0 _⇒₀_
 infixr 1 _∘_
-
-record _⇒₀_ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
-  (A : S.t ℓ₀ᵒ ℓ₀ʰ)
-  (B : S.t ℓ₁ᵒ ℓ₁ʰ)
-    : Set ((ℓ₀ᵒ ⊔ ℓ₀ʰ) ⊔ (ℓ₁ᵒ ⊔ ℓ₁ʰ)) where
-  infixl 1 _$₀_
-  infixl 1 _$₁_
-  field
-    _$₀_ : S.t.obj A T.Π.⇒₀ S.t.obj B
-    _$₁_ : ∀ {a b} → S.t.hom A (a T.∐., b) T.Π.⇒₀ S.t.hom B (_$₀_ a T.∐., _$₀_ b)
-open _⇒₀_ public
 
 id
   : ∀ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
