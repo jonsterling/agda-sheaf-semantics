@@ -1,0 +1,1 @@
+module Setoid.Coproduct where
