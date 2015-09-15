@@ -1,4 +1,4 @@
-module Setoid.Extensionality where
+module Setoid.Homotopy where
 
 open import Agda.Primitive
 import Setoid.Base as S

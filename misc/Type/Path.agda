@@ -1,4 +1,6 @@
-module Type.Identity where
+module Type.Path where
+
+import Type.Coproduct as ∐
 
 data t ..{ℓ} {A : Set ℓ} (x : A) : A → Set ℓ where
   idn : t x x
@@ -10,10 +12,9 @@ primitive
 
 cmp
   : ∀ ..{ℓ} {A : Set ℓ} {x y z : A}
-  → (p₁ : t y z)
-  → (p₀ : t x y)
+  → t y z ∐.× t x y
   → t x z
-cmp idn idn = idn
+cmp (idn ∐., idn) = idn
 
 inv
   : ∀ ..{ℓ} {A : Set ℓ} {x y : A}
