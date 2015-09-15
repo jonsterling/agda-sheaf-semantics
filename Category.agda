@@ -30,8 +30,8 @@ record law ..{o h h~} (𝒞 : sig o h h~) : Set (lsuc (o ⊔ h ⊔ h~)) where
 
 record t ..o ..h ..h~ : Set (lsuc (o ⊔ h ⊔ h~)) where
   field
-    cat : sig o h h~
-    laws : law cat
+    struct : sig o h h~
+    is-category : law struct
 
 open sig public
 open law public

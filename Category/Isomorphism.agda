@@ -6,8 +6,8 @@ module Category.Isomorphism ..{o h h~} (𝒞 : C.t o h h~) where
   import Coproduct as ∐
 
   open S.Notation
-  open C.sig (C.cat 𝒞)
-  open C.Notation (C.cat 𝒞)
+  open C.sig (C.struct 𝒞)
+  open C.Notation (C.struct 𝒞)
 
   record law {𝔠 𝔡} (to : ∣ hom 𝔠 𝔡 ∣): Set (o ⊔ h ⊔ h~) where
     field

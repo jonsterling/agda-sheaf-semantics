@@ -9,8 +9,8 @@ open S.Notation
 open ∐.Notation
 
 module Sig ..{o h h~} (𝒞 : C.t o h h~) where
-  open C.sig (C.cat 𝒞)
-  open C.Notation (C.cat 𝒞)
+  open C.sig (C.struct 𝒞)
+  open C.Notation (C.struct 𝒞)
 
   module _ {𝔵 𝔶 𝔷} (f : ∣ hom 𝔵 𝔷 ∣) (g : ∣ hom 𝔶 𝔷 ∣) where
     record law 𝔭 : Set (o ⊔ h ⊔ h~) where

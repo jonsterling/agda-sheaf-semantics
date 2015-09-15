@@ -11,7 +11,7 @@ import Unit as 𝟙
 open S.Notation
 
 module _ ..{o h h~} (𝒞 : C.t o h h~) (pullback : Pullback.has 𝒞) where
-  open C.sig (C.cat 𝒞)
+  open C.sig (C.struct 𝒞)
   import Category.Isomorphism 𝒞 as Iso
 
   module PB = Pullback.Sig 𝒞
@@ -37,10 +37,12 @@ module _ ..{o h h~} (𝒞 : C.t o h h~) (pullback : Pullback.has 𝒞) where
     Δ 𝔡 = CoveringFam.t {i} 𝔡
     syntax covers 𝔠 F = F ▹ 𝔠
 
+  -- Sheaves in Geometry and Logic, Ch. 3
   record law ..{i j} (𝔅 : sig i j) : Set (lsuc (i ⊔ j) ⊔ o ⊔ h ⊔ h~) where
-    open sig 𝔅; open 𝟙.Notation; open ∐.Notation; open C.Notation (C.cat 𝒞); open CoveringFam.Notation
+    open sig 𝔅; open 𝟙.Notation; open ∐.Notation; open C.Notation (C.struct 𝒞); open CoveringFam.Notation
 
     field
+      -- isomorphisms shall be covered by the unit family
       isomorphisms-cover :
         {𝔠 𝔡 : _}
         (f : ∣ hom 𝔠 𝔡 ∣)
@@ -62,3 +64,9 @@ module _ ..{o h h~} (𝒞 : C.t o h h~) (pullback : Pullback.has 𝒞) where
           → F ▹ 𝔡
           → (∀ i → G i ▹ 𝔠 i)
           → ⟨ (λ { ∐.⟨ i , j ⟩ → f i ∘ g i j }) ∶ _ ⇒ 𝔡 ∣ ∐.t F.dom G.dom ⟩ ▹ 𝔡
+
+  record t ..i ..j : Set (lsuc (i ⊔ j) ⊔ o ⊔ h ⊔ h~) where
+    constructor ⟨_,_⟩
+    field
+      struct : sig i j
+      is-pretopology : law struct
