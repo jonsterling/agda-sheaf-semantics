@@ -42,7 +42,6 @@ module _ ..{o h h~} (𝒞 : C.t o h h~) (pullback : Pullback.has 𝒞) where
     open sig 𝔅; open 𝟙.Notation; open ∐.Notation; open C.Notation (C.struct 𝒞); open CoveringFam.Notation
 
     field
-      -- isomorphisms shall be covered by the unit family
       isomorphisms-cover :
         {𝔠 𝔡 : _}
         (f : ∣ hom 𝔠 𝔡 ∣)
