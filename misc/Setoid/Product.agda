@@ -8,6 +8,18 @@ import Type as T
 
 infixr 1 _∘_
 
+s : ∀ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
+  → (A : S.t ℓ₀ᵒ ℓ₀ʰ)
+  → (B : S.t ℓ₁ᵒ ℓ₁ʰ)
+  → S.t _ _
+s A B = record
+  { obj = A ⇒₀ B
+  ; hom = λ {(F T.∐., G) → F Homo.⇒₁ G}
+  ; idn = Homo.idn _
+  ; cmp = Homo.cmp
+  ; inv = Homo.inv
+  }
+
 id
   : ∀ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
   → {A : S.t ℓ₀ᵒ ℓ₀ʰ}
