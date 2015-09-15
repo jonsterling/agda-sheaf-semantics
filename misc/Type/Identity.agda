@@ -15,11 +15,11 @@ cmp
   → t x z
 cmp idn idn = idn
 
-sym
+inv
   : ∀ ..{ℓ} {A : Set ℓ} {x y : A}
   → t x y
   → t y x
-sym idn = idn
+inv idn = idn
 
 _$₁_
   : ∀ ..{ℓ₀ ℓ₁} {A : Set ℓ₀} {B : Set ℓ₁} {x y}
