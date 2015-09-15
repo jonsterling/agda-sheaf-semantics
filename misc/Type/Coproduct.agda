@@ -2,6 +2,8 @@ module Type.Coproduct where
 
 open import Agda.Primitive
 
+infixr 0 _,_
+
 record t ..{ℓ₀ ℓ₁} (A : Set ℓ₀) (B : A → Set ℓ₁) : Set (ℓ₀ ⊔ ℓ₁) where
   constructor _,_
   field
