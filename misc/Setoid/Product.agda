@@ -39,9 +39,5 @@ cmp
   → (B ⇒₀ˢ C) ∐.× (A ⇒₀ˢ B) ⇒₀ᵗ (A ⇒₀ˢ C)
 cmp {C = C} = record
   { _$₀_ = cmpᵗ
-  ; _$₁_ = λ { {G₀ T.∐., F₀} {G₁ T.∐., F₁} (β T.∐., α) →
-      record { -- FIXME
-        com = S.cmp C (Homo.com β T.∐., G₀ $₁ Homo.com α)
-      }
-    }
+  ; _$₁_ = Homo.cmp-h₁
   }

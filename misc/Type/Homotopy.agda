@@ -39,40 +39,36 @@ inv
 inv α = record
   { com = Path.inv (com α) }
 
-_∘w₀_
+cmp-w₀
   : ∀ ..{ℓ₀ᵒ ℓ₁ᵒ ℓ₂ᵒ} {A : T.t ℓ₀ᵒ} {B : T.t ℓ₁ᵒ} {C : T.t ℓ₂ᵒ}
   → {F G : A Π.⇒₀ B}
-  → (H : B Π.⇒₀ C)
-  → (α : F ⇒₁ G)
-  → (H Π.∘ F) ⇒₁ (H Π.∘ G)
-H ∘w₀ α = record
+  → (Hα : (B Π.⇒₀ C) ∐.× (F ⇒₁ G))
+  → (∐.π₀ Hα Π.∘ F) ⇒₁ (∐.π₀ Hα Π.∘ G)
+cmp-w₀ (H ∐., α) = record
   { com = H Path.$₁ com α }
 
-_∘w₁_
+cmp-w₁_
   : ∀ ..{ℓ₀ᵒ ℓ₁ᵒ ℓ₂ᵒ} {A : T.t ℓ₀ᵒ} {B : T.t ℓ₁ᵒ} {C : T.t ℓ₂ᵒ}
   → {G H : B Π.⇒₀ C}
-  → (β : G ⇒₁ H)
-  → (F : A Π.⇒₀ B)
-  → (G Π.∘ F) ⇒₁ (H Π.∘ F)
-β ∘w₁ F = record
+  → (βF : (G ⇒₁ H) ∐.× (A Π.⇒₀ B))
+  → (G Π.∘ ∐.π₁ βF) ⇒₁ (H Π.∘ ∐.π₁ βF)
+cmp-w₁ (β ∐., F) = record
   { com = com β }
 
-_∘h₀_
+cmp-h₀
   : ∀ ..{ℓ₀ᵒ ℓ₁ᵒ ℓ₂ᵒ} {A : T.t ℓ₀ᵒ} {B : T.t ℓ₁ᵒ} {C : T.t ℓ₂ᵒ}
   → {F G : A Π.⇒₀ B}
   → {H K : B Π.⇒₀ C}
-  → (β : H ⇒₁ K)
-  → (α : F ⇒₁ G)
+  → (βα : (H ⇒₁ K) ∐.× (F ⇒₁ G))
   → (H Π.∘ F) ⇒₁ (K Π.∘ G)
-_∘h₀_ {K = K} β α = record
+cmp-h₀ {K = K} (β ∐., α) = record
   { com = Path.cmp (K Path.$₁ com α ∐., com β) }
 
-_∘h₁_
+cmp-h₁
   : ∀ ..{ℓ₀ᵒ ℓ₁ᵒ ℓ₂ᵒ} {A : T.t ℓ₀ᵒ} {B : T.t ℓ₁ᵒ} {C : T.t ℓ₂ᵒ}
   → {F G : A Π.⇒₀ B}
   → {H K : B Π.⇒₀ C}
-  → (β : H ⇒₁ K)
-  → (α : F ⇒₁ G)
+  → (βα : (H ⇒₁ K) ∐.× (F ⇒₁ G))
   → (H Π.∘ F) ⇒₁ (K Π.∘ G)
-_∘h₁_ {H = H} β α = record
+cmp-h₁ {H = H} (β ∐., α) = record
   { com = Path.cmp (com β ∐., H Path.$₁ com α) }
