@@ -58,11 +58,11 @@ cmp
   → {B : S.t ℓ₁ᵒ ℓ₁ʰ}
   → {C : S.t ℓ₂ᵒ ℓ₂ʰ}
   → (B ⇒₀ˢ C) ∐.× (A ⇒₀ˢ B) ⇒₀ᵗ (A ⇒₀ˢ C)
-cmp {A = A} {B = B} {C = C} = record
+cmp {C = C} = record
   { _$₀_ = cmpᵗ
   ; _$₁_ = λ { {G₀ T.∐., F₀} {G₁ T.∐., F₁} (β T.∐., α) →
       record { -- FIXME
-        com = λ {a} → S.cmp C (Homo.com β T.∐., G₀ $₁ Homo.com α)
+        com = S.cmp C (Homo.com β T.∐., G₀ $₁ Homo.com α)
       }
     }
   }
