@@ -1,5 +1,6 @@
 module Setoid where
 
+open import Setoid.Base public
 import Setoid.Coproduct
 import Setoid.Homotopy
 import Setoid.Initial
