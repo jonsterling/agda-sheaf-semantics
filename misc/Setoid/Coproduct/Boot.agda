@@ -3,6 +3,8 @@ module Setoid.Coproduct.Boot where
 import Setoid.Base as S
 import Type as T
 
+infixr 3 _×_
+
 _×_
   : ∀ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
   → (A : S.t ℓ₀ᵒ ℓ₀ʰ)

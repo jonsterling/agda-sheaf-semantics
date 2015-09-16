@@ -4,12 +4,6 @@ open import Agda.Primitive
 open import Type.Coproduct.Boot public
 import Type.Product as Π
 
-ᵛ : ∀ ..{ℓ₀ ℓ₁ ℓ₂}
-  → {A : Set ℓ₀} {B : A → Set ℓ₁} {Φ : t A B → Set ℓ₂}
-  → (ϕ : Π.t A (λ x → Π.t (B x) (λ y → Φ (x , y))))
-  → (Π.t (t A B) Φ)
-ᵛ ϕ (x , y) = ϕ x y
-
 ⟨_,_⟩
   : ∀ ..{ℓ₀ ℓ₁ ℓ₂}
   → {X : Set ℓ₀} {A : X → Set ℓ₁} {B : ∀ {x} → A x → Set ℓ₂}
@@ -24,7 +18,7 @@ import Type.Product as Π
   → (F : X₀ Π.⇒₀ A)
   → (G : ∀ {x₀} → X₁ x₀ Π.⇒₀ B (F x₀))
   → (t X₀ X₁ Π.⇒₀ t A B)
-⟨ F × G ⟩ (x , y) = F x , G y
+⟨ F × G ⟩ (x , y) = F x , G y -- ⟨ F Π.∘ π₀ , G Π.∘ π₁ ⟩
 
 [_,_]
   : ∀ ..{ℓ₀ ℓ₁}
