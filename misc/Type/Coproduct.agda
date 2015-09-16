@@ -9,7 +9,9 @@ open import Type.Coproduct.Boot public
   → (∀ x → Φ x)
 ᵛ ϕ (x , y) = ϕ x y
 
-⟨_,_⟩ : ∀ ..{ℓ₀ ℓ₁ ℓ₂} {X : Set ℓ₀} {A : X → Set ℓ₁} {B : ∀ {x} → A x → Set ℓ₂}
+⟨_,_⟩
+  : ∀ ..{ℓ₀ ℓ₁ ℓ₂}
+  → {X : Set ℓ₀} {A : X → Set ℓ₁} {B : ∀ {x} → A x → Set ℓ₂}
   → (F : (x : X) → A x)
   → (G : (x : X) → B (F x))
   → ((x : X) → t (A x) B)
@@ -24,7 +26,9 @@ open import Type.Coproduct.Boot public
   → (t X₀ X₁ → t A B)
 ⟨ F × G ⟩ (x , y) = F x , G y
 
-[_,_] : ∀ ..{ℓ₀ ℓ₁} {A : Set ℓ₀} {B : Set ℓ₀} {X : Set ℓ₁}
+[_,_]
+  : ∀ ..{ℓ₀ ℓ₁}
+  → {A : Set ℓ₀} {B : Set ℓ₀} {X : Set ℓ₁}
   → (F : A → X)
   → (G : B → X)
   → (A + B → X)
