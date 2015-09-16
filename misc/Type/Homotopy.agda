@@ -32,6 +32,13 @@ cmp
 cmp (β ∐., α) = record
   { com = Path.cmp (com β ∐., com α) }
 
+inv
+  : ∀ {ℓ₀ᵒ ℓ₁ᵒ} {A : T.t ℓ₀ᵒ} {B : T.t ℓ₁ᵒ}
+  → {F G : A Π.⇒₀ B}
+  → (F ⇒₁ G) Π.⇒₀ (G ⇒₁ F)
+inv α = record
+  { com = Path.inv (com α) }
+
 _∘w₀_
   : ∀ ..{ℓ₀ᵒ ℓ₁ᵒ ℓ₂ᵒ} {A : T.t ℓ₀ᵒ} {B : T.t ℓ₁ᵒ} {C : T.t ℓ₂ᵒ}
   → {F G : A Π.⇒₀ B}
