@@ -5,6 +5,8 @@ open import Agda.Primitive
 import Type as T
 
 record t ..(ℓᵒ ℓʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓʰ)) where
+  infix  0 _≈_
+  infixr 1 _∘_
   field
     obj : Set ℓᵒ
     hom : obj T.∐.× obj → Set ℓʰ
