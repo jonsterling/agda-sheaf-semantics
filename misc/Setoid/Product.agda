@@ -2,7 +2,7 @@ module Setoid.Product where
 
 open import Agda.Primitive
 import Setoid.Base as S
-open import Setoid.Coproduct as ∐
+open import Setoid.Coproduct.Boot as ∐
 open import Setoid.Product.Boot public
 import Setoid.Homotopy as Homo
 import Setoid.Terminal as 𝟙
